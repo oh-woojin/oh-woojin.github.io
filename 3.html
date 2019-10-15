@@ -12,10 +12,54 @@
   gtag('config', 'UA-149465963-1');
 </script>
 
+<script>
+var Links = {
+  SetColor : function(color){
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while(i < alist.length){
+      alist[i].style.color = color;
+      i++
+    }
+  }
+}
+var Body = {
+  SetColor : function(color){
+    document.querySelector('body').style.color = color;
+  },
+  SetBackgroundColor : function(color){
+    document.querySelector('body').style.backgroundColor = color;
+  }
+}
+
+function BodySetBackgroundColor(color){
+  document.querySelector('body').style.backgroundColor = color;
+}
+
+function nightdayHandler(self){
+var target = document.querySelector('body');
+if(self.value === 'NIGHT'){
+Body.SetBackgroundColor('black');
+Body.SetColor('white');
+self.value = 'DAY';
+Links.SetColor('powderblue');
+}
+else{
+Body.SetBackgroundColor('white');
+Body.SetColor('black');
+self.value = 'NIGHT';
+Links.SetColor('blue');
+
+}
+}
+</script>
   </head>
 
   <body>
     <h1><a href="index.html">Travel</h1></a>
+    <input type="button" value="NIGHT" onclick="
+    nightdayHandler(this);
+    ">
     <ol>
       <li><a href="1.html" target="_blank" >Country</li></a>
       <li><a href="2.html" target="_blank" >Recommend Tour Sight</li></a>
@@ -47,3 +91,4 @@ s.setAttribute('data-timestamp', +new Date());
     </p>
   </body>
 </html>
+
